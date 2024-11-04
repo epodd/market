@@ -1,0 +1,11 @@
+query GetProducts($filter: FilterInputType) {
+    getProducts(filter: $filter) {
+        name
+        id
+        images {
+            key
+            location
+        }
+        price
+    }
+}

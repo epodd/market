@@ -1,0 +1,21 @@
+query GetProductByIds($ids: [String!]!) {
+    getProductByIds(ids: $ids) {
+        name
+        color
+        id
+        description
+        productDetail
+        sizes
+        images {
+            key
+            location
+        }
+        price
+        kid
+        gender
+        variantsColor {
+            id
+            color
+        }
+    }
+}

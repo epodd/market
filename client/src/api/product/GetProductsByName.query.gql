@@ -1,0 +1,11 @@
+query GetProductByName($name: String!) {
+    getProductByName(name: $name) {
+        id
+        name
+        color
+        images {
+            key
+            location
+        }
+    }
+}
