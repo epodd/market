@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="170bebfc-8b05-44cb-8e3b-c46087ef6222" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../client/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/.graphqlconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/remote-schema.graphql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Avatar/Avatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Buttons/Buttons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Containers/Box.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Image/Image.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Inputs/Checkbox/checkbox-with-label.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Inputs/Checkbox/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Inputs/Input-with-label/input-with-label.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Inputs/Input-with-label/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Inputs/InputFile/input-file.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/Text/Text.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/theme.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/UI-kit/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/containers/category/category-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/containers/category/label-category/label-category-component.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/containers/category/label-category/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/containers/category/label-category/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/containers/category/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/containers/color/color-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/containers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/containers/product/product-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/forms/create-product-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/pages/category-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/pages/color-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/pages/offers-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/admin/pages/products-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/all-providers/all-providers.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/auth/GetUser.query.gql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/auth/Logout.mutation.gql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/auth/SignIn.mutation.gql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/auth/SignUp.mutation.gql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/cart/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/cart/useRequests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/category/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/category/useRequests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/color/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/color/useRequests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/filter/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/filter/useRequests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/offer/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/offer/useRequests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/product/AddProduct.mutation.gql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/product/GetProducts.query.gql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/product/GetProductsByIds.query.gql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/api/product/GetProductsByName.query.gql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/animation/animationBox/animationBox.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/animation/animationBox/variants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/cards/product-card/product-card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/cards/product-card/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/color-picker/color-picker.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/container/container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/dropdown/dropdown.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/dropdown/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/filter/filter-label/filter-label.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/filter/filter-label/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/header/header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/header/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/icons/icons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/layout/admin-layout/admin-layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/layout/auth-layout/auth-layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/layout/main-layout/main-layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/layout/main-layout/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/loader/loader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/modal/modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/modal/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/select/multi-select.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/select/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/sidebar/sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/sidebar/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/auth/auth-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/checkout/checkout-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/checkout/checkout-form/checkout-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/checkout/products-info/products-info.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/filters/filter/filter.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/product/product-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/product/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/products/product-searcher/product-searcher.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/containers/products/products-container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/AuthProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/guards/auth-admin-guard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/guards/auth-guard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/guards/guard-helpers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/guards/not-auth-guard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/hooks/use-auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/hooks/use-session.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/jwt-utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/auth/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/cart/CartProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/cart/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/cart/hooks/use-cart.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/cart/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/cart/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/filter/FilterProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/filter/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/filter/hooks/use-filter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/filter/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/filter/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/store/StoreProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/store/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/store/hooks/use-store.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/store/reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/store/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-bold-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-bold-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-bolditalic-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-bolditalic-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-extralight-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-extralight-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-extralightitalic-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-extralightitalic-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-italic-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-italic-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-light-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-light-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-lightitalic-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-lightitalic-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-medium-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-medium-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-mediumitalic-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-mediumitalic-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-regular-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-regular-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-semibold-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-semibold-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-semibolditalic-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/ibmplexmono-semibolditalic-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/fonts/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/auth/sign-in-form/sign-in-form-validate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/auth/sign-in-form/sign-in-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/auth/sign-in-form/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/auth/sign-up-form/sign-up-form-validate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/auth/sign-up-form/sign-up-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/auth/sign-up-form/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/validation/error-messages.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/validation/validation-helpers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/forms/validation/validation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/product-hooks/useGetProductByName.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/product-hooks/useGetProducts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/product-hooks/useGetProductsById.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/useCategories.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/useHover.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/useRouter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/useS3.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/useSnackbar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/modals/cart-modal/card-cart.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/modals/cart-modal/cart-modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/modals/filter-modal/filter-modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/modals/filter-modal/styled.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/account/account-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/auth/auth-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/checkout/checkout-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/main/main-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/product/product-page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/routes/routes-config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/services/s3/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/utils/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/middleware/auth-middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/auth/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/cart/cart.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/category/category.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/color/colors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/filter/filter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/offer/offer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/product/product.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/token/token.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/s3/s3.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/auth/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/cart/cart.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/category/category.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/color/color.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/filter/filter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/offer/offer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/product/graphql-types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/product/product.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schema/schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/cart/cart-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/category/category-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/color/color-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/filter/filter-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/offer/offer-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/product/product-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/s3/s3-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/token/token-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/user/user-service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tools/error/error-tools.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/error/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2R6g3QwhohEm4p9Lx2MSy5lxZXY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yevgeniy/Desktop/study/server&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/yevgeniy/Desktop/study/server/node_modules/prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/yevgeniy/Desktop/study/server/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="170bebfc-8b05-44cb-8e3b-c46087ef6222" name="Changes" comment="" />
+      <created>1686575744453</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686575744453</updated>
+      <workItem from="1686575745621" duration="65000" />
+      <workItem from="1686578677626" duration="13000" />
+      <workItem from="1707322704802" duration="792000" />
+      <workItem from="1707788759398" duration="100000" />
+      <workItem from="1707788876299" duration="715000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
