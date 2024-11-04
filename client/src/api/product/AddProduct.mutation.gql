@@ -1,0 +1,5 @@
+mutation AddProduct($data: ProductInputType!) {
+    addProduct(data: $data) {
+        id
+    }
+}

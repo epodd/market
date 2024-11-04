@@ -1,0 +1,15 @@
+query GetUser($userId: String!) {
+    getUser(userId: $userId) {
+        user {
+            id
+            name
+            email
+            role
+        }
+        ok
+        errors {
+            path
+            message
+        }
+    }
+}

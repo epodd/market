@@ -1,0 +1,17 @@
+mutation Registration($name: String!, $email: String!, $password: String!) {
+    registration(name: $name, email: $email, password: $password) {
+        user {
+            id
+            accessToken
+            refreshToken
+            email
+            name
+            role
+        }
+        ok
+        errors {
+            path
+            message
+        }
+    }
+}
