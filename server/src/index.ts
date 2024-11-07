@@ -1,16 +1,14 @@
 import express from "express";
 import { resolvers, typeDefs } from "./schema/schema";
-import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { graphqlHTTP } from "express-graphql";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import authMiddleware from "./middleware/auth-middleware";
 import { graphqlUploadExpress } from "graphql-upload";
 import { ApolloServer, gql } from "apollo-server-express";
-import { AuthMutations, AuthQueries } from "./schema/auth/auth";
-import { expressMiddleware } from "@apollo/server/express4";
+
+
 
 dotenv.config();
 const app = express();
