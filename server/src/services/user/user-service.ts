@@ -84,12 +84,19 @@ class userService {
 
   async registration(parent, { name, email, password }) {
     try {
+      
+      
+      const kk = await User.find({})
+      
+      
+      console.log('tttt USERS', kk)
       const hasUser = await User.findOne({ email });
+  
       if (hasUser) {
         throw new Error("User already exist");
       }
       const hashedPassword = await bcrypt.hash(password, 10);
-
+  
       const newUser = new User({
         name,
         email,

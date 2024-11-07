@@ -3,7 +3,8 @@ import { v4 } from 'uuid'
 
 class s3Service {
   async uploadFile(file) {
-    const { createReadStream } = await file;
+    const { createReadStream } = await file.promise;
+    
     const fileStream = createReadStream();
     const uploadParams = {
       Bucket: process.env.S3_BUCKET_NAME,

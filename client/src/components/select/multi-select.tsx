@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
-import { Icon } from "src/components/icons/icons";
+import { Icon } from "@components";
 import { Box, Dropdown, Input, Text } from "src/UI-kit";
 import _ from "lodash";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";

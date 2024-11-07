@@ -1,21 +1,20 @@
 import React from "react";
 import { Route, Routes, Outlet, useLocation } from "react-router-dom";
 import { AuthPage } from "./pages";
-import MainLayout from "./components/layout/main-layout/main-layout";
+import { MainLayout, AdminLayout } from "@components";
 import AuthGuard from "./contexts/auth/guards/auth-guard";
 import NonAuthGuard from "./contexts/auth/guards/not-auth-guard";
 import AuthAdminGuard from "./contexts/auth/guards/auth-admin-guard";
 import CategoryPage from "./admin/pages/category-page";
 import ProductsPage from "./admin/pages/products-page";
 import ColorPage from "./admin/pages/color-page";
-import AdminLayout from "./components/layout/admin-layout/admin-layout";
-import "src/fonts/stylesheet.css";
 import { AnimatePresence } from "framer-motion";
 import OffersPage from "./admin/pages/offers-page";
 import { MainPage, ProductPage } from "src/pages";
 import { CheckoutPage } from "./pages/checkout/checkout-page";
 import { AccountPage } from "./pages/account/account-page";
 import { SIGN_IN_PATH } from "./routes/routes-config";
+import "src/fonts/stylesheet.css";
 
 function App() {
   const location = useLocation();

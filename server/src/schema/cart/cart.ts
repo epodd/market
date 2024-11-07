@@ -5,7 +5,7 @@ import { gql } from "apollo-server-express";
 export const cartTypeDefs = gql`
   type CartResponseType {
     userId: String!
-    products: [String]!
+    products: [String!]!
   }
 
   type Query {
@@ -25,38 +25,3 @@ export const CartMutations = {
   addProductToCart: cartService.addProductToCart,
 };
 
-// const CartType = new GraphQLObjectType({
-//   name: "CartType",
-//   fields: () => ({
-//     userId: { type: GraphQLString },
-//     products: { type: new GraphQLList(GraphQLString) },
-//   }),
-// });
-//
-//
-// export const CartQueries = {
-//   getCart: {
-//     type: CartType,
-//     args: {
-//       userId: {
-//         type: GraphQLString,
-//       },
-//     },
-//     resolve: cartService.getCart,
-//   },
-// };
-//
-// export const CartMutations = {
-//   addProductToCart: {
-//     type: CartType,
-//     args: {
-//       products: {
-//         type: new GraphQLList(GraphQLString),
-//       },
-//       userId: {
-//         type: GraphQLString,
-//       },
-//     },
-//     resolve: cartService.addProductToCart,
-//   },
-// };

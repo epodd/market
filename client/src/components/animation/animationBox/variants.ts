@@ -2,6 +2,9 @@ export type VariantsAnimationTypes = keyof typeof variantsAnimation;
 
 export const variantsAnimation = {
   pageAnimation: {
+    init: {
+      opacity: 0,
+    },
     visible: {
       opacity: 1,
       y: 0,
@@ -13,6 +16,23 @@ export const variantsAnimation = {
     },
     exit: {
       y: -30,
+      opacity: 0,
+      transition: { duration: 0.4, ease: "easeInOut" },
+    },
+  },
+  deleteElementFromList: {
+    init: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeInOut" },
+    },
+    hidden: {
+      opacity: 0,
+    },
+    exit: {
       opacity: 0,
       transition: { duration: 0.4, ease: "easeInOut" },
     },

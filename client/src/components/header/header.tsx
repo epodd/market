@@ -10,7 +10,7 @@ import {
   DropdownItem,
 } from "./styled";
 import { Text, Box } from "src/UI-kit";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { isAdmin, useAuth } from "src/contexts";
 import { Button, Avatar } from "src/UI-kit";
 import styled from "styled-components";
@@ -50,7 +50,7 @@ interface IHeaderProps {
   setFilter: (arg: IFilter) => void;
 }
 
-const Header = memo(({ setCartModalOpen, setFilter }: IHeaderProps) => {
+export const Header = memo(({ setCartModalOpen, setFilter }: IHeaderProps) => {
   const { categories, setActiveCategory, activeCategory } = useStore();
   const { isAuthenticated, user, signOut } = useAuth();
   const { products } = useCart();
@@ -73,6 +73,8 @@ const Header = memo(({ setCartModalOpen, setFilter }: IHeaderProps) => {
     );
   }, [activeCategory]);
 
+  const LinkComp = pathname === "/" ? Box : Link;
+
   return (
     <Wrapper>
       <HeaderBlock>
@@ -84,7 +86,7 @@ const Header = memo(({ setCartModalOpen, setFilter }: IHeaderProps) => {
             </Button>
           )}
         </Box>
-        <Link to="/">
+        <LinkComp to="/">
           <LogoWrapper behavior="column">
             <Text cursor="pointer" textAlign="center" variant="huge">
               VALUES
@@ -98,7 +100,7 @@ const Header = memo(({ setCartModalOpen, setFilter }: IHeaderProps) => {
               collection
             </Text>
           </LogoWrapper>
-        </Link>
+        </LinkComp>
         <Box behavior="rowAlignCenterEnd">
           {!isAuthenticated && (
             <Text m="0 10px 0 0" variant="small">
@@ -237,5 +239,3 @@ const Header = memo(({ setCartModalOpen, setFilter }: IHeaderProps) => {
     </Wrapper>
   );
 });
-
-export default Header;

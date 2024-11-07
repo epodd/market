@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client'
 
 export const PUT_FILTER = gql`
-  mutation PutFilter($filter: FilterTypeInput!, $userId: String!) {
+  mutation PutFilter($filter: FilterInputType!, $userId: String!) {
     putFilter(filter: $filter, userId: $userId) {
       userId
       filter {

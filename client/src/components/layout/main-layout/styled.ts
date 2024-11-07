@@ -16,3 +16,18 @@ export const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
 `;
+
+export const SpinnerOverlay = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.37);
+`;
+
+export const SpinnerWrapper = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+`;

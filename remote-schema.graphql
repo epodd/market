@@ -5,59 +5,14 @@ schema {
     mutation: Mutation
 }
 
-"Indicates exactly one field must be supplied and this field must not be `null`."
-directive @oneOf on INPUT_OBJECT
-
 type CartResponseType {
     products: [String]!
     userId: String!
 }
 
-type Category {
-    createAt: String!
-    id: String!
-    name: String!
-    subCategory: [SubCategoryType]!
-}
-
-type CategoryType {
-    createAt: String!
-    id: String!
-    name: String!
-    subCategory: [SubCategoryType!]!
-}
-
-type ClothesType {
-    createAt: String!
-    id: String!
-    name: String!
-}
-
 type ErrorType {
     message: String!
     path: String!
-}
-
-type FilterCategoriesType {
-    id: String!
-    name: String!
-    order: String!
-}
-
-type FilterColorsType {
-    color: String!
-    id: String!
-    name: String!
-}
-
-type FilterDataType {
-    categories: [FilterCategoriesType!]!
-    colors: [FilterColorsType!]!
-}
-
-type FilterType {
-    filter: FilterDataType
-    userId: String!
 }
 
 type ImageType {
@@ -75,17 +30,10 @@ type LogoutResponseType {
 }
 
 type Mutation {
-    addCategory(name: String!): CategoryType!
     addProduct(data: ProductInputType!): ProductResponseType!
     addProductToCart(products: [String!]!, userId: String!): CartResponseType
-    addSubCategory(idCategory: String!, nameSubCategory: String!): CategoryType!
-    addThingToSubCategory(idCategory: String!, idSubCategory: String!, nameThing: String!): CategoryType!
-    deleteCategory(idCategory: String!): CategoryType!
-    deleteSubCategory(idCategory: String!, idSubCategory: String!): CategoryType!
-    deleteThingFromSubCategory(idCategory: String!, idSubCategory: String!, nameThing: String!): CategoryType!
     login(email: String!, password: String!): UserResponseType!
     logout(userId: String!): LogoutResponseType!
-    putFilter(filter: FilterInputType!, userId: String!): FilterType!
     registration(email: String!, name: String!, password: String!): UserResponseType!
 }
 
@@ -102,18 +50,15 @@ type ProductResponseType {
     productDetail: String!
     sizes: [String!]!
     typeProduct: [String!]!
-    variantsColor: [VariantColorType!]!
+    variantsColor: [VariantColorType]!
 }
 
 type Query {
     getCart(userId: String!): CartResponseType
-    getCategories: [Category]
-    getCategory(idCategory: String!): Category!
-    getFilter(userId: String!): FilterType
-    getProductByFilter(filter: FilterInputType!): [ProductResponseType!]!
-    getProductByIds(ids: [String!]!): [ProductResponseType!]!
-    getProductByName(name: String!): [ProductResponseType!]!
-    getProducts(filter: FilterInputType): [ProductResponseType!]!
+    getProductByFilter(filter: FilterInputType!): [ProductResponseType]!
+    getProductByIds(ids: [String!]!): [ProductResponseType]!
+    getProductByName(name: String!): [ProductResponseType]!
+    getProducts(filter: FilterInputType): [ProductResponseType]!
     getUser(userId: String!): UserResponseType
     refreshToken: RefreshTokenResponseType
 }
@@ -121,13 +66,6 @@ type Query {
 type RefreshTokenResponseType {
     accessToken: String!
     refreshToken: String!
-}
-
-type SubCategoryType {
-    createAt: String!
-    id: String!
-    name: String!
-    typeClothes: [ClothesType!]
 }
 
 type UserAuthorizeType {
@@ -172,14 +110,7 @@ input File {
     mimetype: String!
 }
 
-input FilterCategoriesTypeInput {
-    color: String!
-    id: String!
-    name: String!
-}
-
 input FilterInputType {
-    categories: [FilterCategoriesTypeInput!]
     categoryId: String!
     colors: [ColorInputType]
 }

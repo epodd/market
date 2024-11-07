@@ -1,55 +1,48 @@
-import {
-  GraphQLString,
-  GraphQLObjectType,
-  GraphQLList,
-  GraphQLInputObjectType,
-} from "graphql";
 import colorService from "../../services/color/color-service";
+import { gql } from 'apollo-server-express'
 
-const ColorType = new GraphQLObjectType({
-  name: "ColorType",
-  fields: () => ({
-    name: { type: GraphQLString },
-    color: { type: GraphQLString },
-    id: { type: GraphQLString },
-    createAt: { type: GraphQLString },
-  }),
-});
 
-const NewColorType = new GraphQLInputObjectType({
-  name: "NewColorType",
-  fields: () => ({
-    name: { type: GraphQLString },
-    color: { type: GraphQLString },
-  }),
-});
+export const colorsTypeDefs = gql`
+    input NewColorInputType {
+        name: String!
+        color: String!
+    }
+    
+    type NewColorType {
+        name: String!
+        color: String!
+    }
+    
+    input ColorInputType {
+        data: NewColorInputType
+    }
+    
+    type ColorType {
+        name: String!
+        color: String!
+        id: String!
+        createAt: String!
+    }
+    
+    
+    type Mutation {
+        addColor(data: NewColorInputType!): ColorType!
+        deleteColor(colorId: String!): ColorType!
+    }
+    
+    type Query {
+        getColors: [ColorType!]!
+    }
+`
 
-export const ColorMutations = {
-  addColor: {
-    type: ColorType,
-    args: {
-      data: {
-        type: NewColorType,
-      },
-    },
-    resolve: colorService.addColor,
-  },
 
-  deleteColor: {
-    type: ColorType,
-    args: {
-      colorId: {
-        type: GraphQLString,
-      },
-    },
-    resolve: colorService.deleteColor,
-  },
-};
+export const ColorsMutations = {
+  addColor: colorService.addColor,
+  deleteColor: colorService.deleteColor
+}
+
 
 export const ColorQueries = {
-  getColors: {
-    type: new GraphQLList(ColorType),
-    args: {},
-    resolve: colorService.getColors,
-  },
-};
+  getColors: colorService.getColors
+}
+

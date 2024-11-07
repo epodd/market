@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { ICategory, ISubCategory, ITypeClothes } from "src/types";
 import { useGetCategories } from "src/api";
+import { useApolloClient } from '@apollo/client'
+import { GET_CATEGORIES } from '../api/category/schema'
 
 export const useCategoriesHook = (id?: string) => {
   const [getCategories] = useGetCategories();
@@ -10,6 +12,16 @@ export const useCategoriesHook = (id?: string) => {
   const [allCategories, setAllCategories] = useState<ICategory[]>([]);
   const [allTypeClothesWithParentIds, setAllTypeClothesWithParentIds] =
     useState<any>([]);
+  
+  const client = useApolloClient()
+  const cacheCategories = client.readQuery({query: GET_CATEGORIES})
+  
+  
+  useEffect(() => {
+    if (!cacheCategories?.getCategories?.length) return
+    setAllCategories(cacheCategories.getCategories)
+  }, [cacheCategories?.getCategories])
+
 
   useEffect(() => {
     getCategories({

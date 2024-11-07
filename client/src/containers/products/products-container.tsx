@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Text } from "src/UI-kit";
 import { ProductCard } from "src/components/cards/product-card/product-card";
+import { Spinner } from "src/components";
 import { IProductCart } from "src/types";
 import { useRouter } from "src/hooks/useRouter";
 import { useTheme } from "styled-components";
 import { FilterModal } from "src/modals/filter-modal/filter-modal";
 import { useAuth, useFilter } from "src/contexts";
 import { omit } from "lodash";
-import { GetProductsQuery, useGetProductsLazyQuery } from "src/api";
+import {
+  GetProductsQuery,
+  GetProductsQueryVariables,
+  useGetProductsLazyQuery,
+} from "src/api";
+import { loadingVar } from "src/store";
+import { QueryResult, useApolloClient } from "@apollo/client";
+import { ProductType } from "aws-sdk/clients/servicecatalog";
 
 export const ProductsContainer = () => {
   const { filter, setFilter, clearFilter, loading } = useFilter();
   const { user } = useAuth();
-  const [getProducts, { loading: getProductsLoading }] =
+  const [getProducts, { loading: getProductsLoading, data }] =
     useGetProductsLazyQuery();
+  const products = data?.getProducts || [];
   const { colors } = useTheme();
   const { push } = useRouter();
   const [openFilterModal, setOpenFilterModal] = useState<boolean>(false);
-  const [products, setProducts] = useState<GetProductsQuery["getProducts"]>([]);
+  // const [products, setProducts] = useState<GetProductsQuery["getProducts"]>([]);
   const [countFilters, setCountFilter] = useState<number>(0);
 
   useEffect(() => {
@@ -31,11 +40,11 @@ export const ProductsContainer = () => {
           }
         : {};
 
+    loadingVar(true);
     getProducts({
       variables: filters,
-      onCompleted: (data) => {
-        setProducts(data?.getProducts);
-      },
+    }).finally(() => {
+      loadingVar(false);
     });
   }, [filter]);
 

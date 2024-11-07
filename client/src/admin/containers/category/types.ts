@@ -16,6 +16,7 @@ export type CreateActionType = {
 
 export type ActionArgumentsType = {
   idCategory?: string;
+  name?: string;
   idSubCategory?: string;
   idClotheType?: string | null;
 };

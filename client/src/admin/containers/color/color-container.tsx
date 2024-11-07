@@ -9,13 +9,15 @@ import {
 } from "src/api/color/useRequests";
 import _ from "lodash";
 import useSnackbars from "src/hooks/useSnackbar";
-import { Icon } from "../../../components";
+import { AnimationBox, AnimationPresenceBox, Icon } from "../../../components";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { IColor } from "src/types";
 import { GET_COLORS } from "src/api/color/schema";
+import { useApolloClient } from "@apollo/client";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Wrapper = styled.div`
-  padding: 50px 100px;
+  padding: 100px 100px;
 `;
 
 const ColorItem = styled.div<{ color?: string }>`
@@ -24,36 +26,50 @@ const ColorItem = styled.div<{ color?: string }>`
   border-radius: 5px;
   background-color: ${({ color }) => color || "transparent"};
   margin-right: 15px;
+  margin-left: 15px;
 `;
+
+const transformHexValueToHex = (hex: string) => {
+  const firstSymbol = hex?.charAt(0);
+
+  if (firstSymbol === "#") {
+    return hex;
+  } else {
+    return `#${hex}`;
+  }
+};
 
 export const ColorContainer = () => {
   const { showSuccessSnackbar, showErrorSnackbar } = useSnackbars();
   const { data } = useGetColors();
   const [addColor] = useAddColor();
   const [deleteColor] = useDeleteColor();
+
+  const client = useApolloClient();
+
   const handleAddColor = (data: { name: string; color: string }) => {
     return addColor({
       variables: {
         data: {
           name: data.name,
-          color: data.color,
+          color: transformHexValueToHex(data.color),
         },
       },
       onCompleted: () => {
-        showSuccessSnackbar("Color successfully added!");
+        showSuccessSnackbar(`Color '${data.name}' successfully added!`);
       },
       onError: (error) => {
         showErrorSnackbar("Something went wrong!" + error);
       },
-      update: (cache, { data }) => {
-        const { getColors }: any = cache.readQuery({
+      update(cache, { data }) {
+        const { getColors }: any = client.readQuery({
           query: GET_COLORS,
         });
 
         const cloneCache = _.cloneDeep(getColors);
         cloneCache.push(data.addColor);
 
-        cache.writeQuery({
+        client.writeQuery({
           query: GET_COLORS,
           data: { getColors: cloneCache },
         });
@@ -61,13 +77,13 @@ export const ColorContainer = () => {
     });
   };
 
-  const handleDeleteColor = (colorId: string) => {
+  const handleDeleteColor = (colorId: string, name: string) => {
     deleteColor({
       variables: {
         colorId,
       },
       onCompleted: () => {
-        showSuccessSnackbar("Color successfully deleted!");
+        showSuccessSnackbar(`Color '${name}' successfully deleted!`);
       },
       onError: (error) => {
         showErrorSnackbar("Something went wrong!" + error);
@@ -148,23 +164,34 @@ export const ColorContainer = () => {
           All available colors:
         </Text>
         <Box behavior="column">
-          {data &&
-            data.getColors?.map((el) => {
-              return (
-                <Box m="0 0 15px 0" behavior="rowAlignCenter" key={el.id}>
-                  <ColorItem color={el?.color} />
-                  <Text
-                    m="0 15px 0 0"
-                    variant="small"
-                  >{`${el?.name} (hex: ${el?.color})`}</Text>
-                  <Icon
-                    onClick={() => handleDeleteColor(el.id)}
-                    cursor="pointer"
-                    icon={faTrash}
-                  />
-                </Box>
-              );
-            })}
+          <AnimatePresence>
+            {data &&
+              data.getColors?.map((el) => {
+                return (
+                  <motion.div
+                    key={el.id}
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <Box m="0 0 15px 0" behavior="rowAlignCenter">
+                      <Icon
+                        onClick={() => handleDeleteColor(el.id, el.name)}
+                        cursor="pointer"
+                        icon={faTrash}
+                      />
+                      <ColorItem color={el?.color} />
+                      <Text
+                        m="0 15px 0 0"
+                        variant="small"
+                      >{`${el?.name} (hex: ${el?.color})`}</Text>
+                    </Box>
+                  </motion.div>
+                );
+              })}
+          </AnimatePresence>
         </Box>
       </Box>
     </Wrapper>

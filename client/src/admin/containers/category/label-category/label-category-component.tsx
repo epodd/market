@@ -39,6 +39,7 @@ const Label = ({
             e.stopPropagation();
             deleteAction({
               ...actionArguments,
+              name,
               [deepIDNames[deepIndex as keyof typeof deepIDNames]]: id,
             });
           }}

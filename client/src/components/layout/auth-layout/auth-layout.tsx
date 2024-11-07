@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { AnimationBox } from "../../animation/animationBox/animationBox";
+import { AnimationBox } from "@components";
 import styled from "styled-components";
 import { Box } from "src/UI-kit";
 
@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   height: 100vh;
 `;
 
-const AuthLayout = ({ children }: { children: ReactNode }) => {
+export const AuthLayout = ({ children }: { children: ReactNode }) => {
   return (
     <Wrapper>
       <Box h="100%" w="100%">
@@ -17,5 +17,3 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
     </Wrapper>
   );
 };
-
-export default AuthLayout;

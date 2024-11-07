@@ -23,20 +23,19 @@ export const ProductContainer = ({ idProduct }: ProductContainerProps) => {
   const [fullSize, setFullSize] = useState<boolean>(false);
   const { addToCart, products, removeFromCart } = useCart();
   const productsId = products.map((el) => el.id);
-  const imagesBlockRef = useRef<any>();
+  const imagesBlockRef = useRef<HTMLDivElement>(null);
   const { products: productsById } = useGetProductByIdsHook(
     useMemo(() => [String(idProduct)], [idProduct])
   );
 
   const [size, setSize] = useState("");
-
-  const product = productsById[0];
+  const product = productsById?.[0];
   const alreadyInCart = product && productsId.includes(product.id);
 
   const handleChangeProductParams = (value: any) => {
     setSize(size === value ? null : value);
   };
-  console.log(productsById);
+
   return (
     <Wrapper behavior="row">
       <ImageBlock>

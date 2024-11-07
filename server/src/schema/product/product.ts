@@ -28,9 +28,14 @@ export const productTypeDefs = gql`
     color: String!
   }
 
-  input FilterInputType {
+  input ProductsFilterInputType {
     categoryId: String!
     colors: [ColorInputType]
+  }
+
+  input ProductsFilterType {
+      categoryId: String!
+      colors: [ColorInputType]
   }
 
   input File {
@@ -44,6 +49,8 @@ export const productTypeDefs = gql`
     id: String!
     name: String!
   }
+  
+  scalar JSON
 
   input ProductInputType {
     name: String!
@@ -53,8 +60,8 @@ export const productTypeDefs = gql`
     price: String!
     gender: String!
     color: String!
-    imageFiles: [File!]!
-    sizes: [SizeType]!
+    imageFiles: [JSON!]
+    sizes: [String]!
     typeProduct: [String!]!
     variantsColor: [VariantColorInputType]
   }
@@ -76,9 +83,9 @@ export const productTypeDefs = gql`
   }
 
   type Query {
-    getProducts(filter: FilterInputType): [ProductResponseType!]!
+    getProducts(filter: ProductsFilterInputType): [ProductResponseType!]!
     getProductByName(name: String!): [ProductResponseType!]!
-    getProductByFilter(filter: FilterInputType!): [ProductResponseType!]!
+    getProductByFilter(filter: ProductsFilterInputType!): [ProductResponseType!]!
     getProductByIds(ids: [String!]!): [ProductResponseType!]!
   }
 

@@ -36,22 +36,32 @@ class productService {
   }
 
   async addProduct(parent, { data }) {
+    
+    console.log('tttt', data)
     let imagesArr = [];
     if (data.imageFiles && data.imageFiles.length) {
       try {
+        console.log('tttt 2', data.imageFiles)
+  
         for (const image of data.imageFiles) {
           const file = await image;
           const imageObj = await s3Service.uploadFile(file);
           imagesArr.push(imageObj);
         }
       } catch (error) {
+        console.log('tttt ERROR', error)
         return errorTools.throwError([
           { path: "addProduct", message: "Something went wrong!" },
         ]);
       }
     }
+    
+    console.log('ttttt HERE STOP', imagesArr)
     const newProduct = await Product.create({ ...data, images: imagesArr });
-
+  
+  
+    console.log('tttt NEW PRODUCT', newProduct)
+  
     if (newProduct?.variantsColor && newProduct.variantsColor.length) {
       const ids = newProduct.variantsColor.map((el) => el.id);
       const productsToLink = await Product.find({

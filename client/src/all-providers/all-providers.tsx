@@ -9,7 +9,7 @@ import {
 import React, { ReactNode } from "react";
 import authMiddleware from "../middlewares/authMiddleware";
 import { ThemeProvider } from "styled-components";
-import { theme, GlobalStyle } from "src/UI-kit";
+import { GlobalStyle, theme } from "@ui";
 import { SnackbarProvider } from "notistack";
 import { AuthProvider } from "../contexts/auth/AuthProvider";
 import { BrowserRouter } from "react-router-dom";
@@ -43,7 +43,13 @@ const cleanTypeName = new ApolloLink((operation, forward) => {
 
 const client = new ApolloClient({
   link: from([cleanTypeName, authMiddleware, uploadLink]),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    // typePolicies: {
+    //   Item: {
+    //     keyFields: ["id"],
+    //   },
+    // }
+  }),
   // { addTypename: false }
 });
 

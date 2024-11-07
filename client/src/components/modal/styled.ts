@@ -14,8 +14,8 @@ export const ModalContent = styled.div`
   max-height: 500px;
   height: fit-content;
   border-radius: 7px;
-  background-color: rgba(225, 225, 225, 0.6);
-  backdrop-filter: blur(9px);
+  background-color: rgba(108, 108, 108, 0.1);
+  backdrop-filter: blur(10px);
   position: relative;
   transition: 0.4s max-height;
 `;

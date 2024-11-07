@@ -1,9 +1,7 @@
 import React from "react";
-import { Box, Text } from "src/UI-kit";
-import { AnimationBox } from "src/components/animation/animationBox/animationBox";
-import { Icon } from "src/components/icons/icons";
+import { Box, Text } from "@ui";
+import { AnimationBox, Icon, ColorItem } from "@components";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { ColorItem } from "src/components/color-picker/color-picker";
 import { FilterItem as FilterItemType } from "src/types";
 import { FilterItem } from "./styled";
 

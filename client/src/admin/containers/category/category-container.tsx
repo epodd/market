@@ -21,6 +21,7 @@ import {
 import { LabelsContainer } from "./label-category/label-category-component";
 import { ICategory, ISubCategory, ITypeClothes } from "src/types";
 import { GET_CATEGORIES } from "src/api/category/schema";
+import { useApolloClient } from '@apollo/client'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -54,7 +55,15 @@ const CategoryContainer = () => {
   const [createType, setCreateType] = useState<keyof typeof CategoryTypes | "">(
     ""
   );
-
+  const data = useApolloClient()
+  const cacheCategories = data?.readQuery({query: GET_CATEGORIES})
+  
+  
+  useEffect(() => {
+    if (!cacheCategories?.getCategories?.length) return
+    setCategories(cacheCategories.getCategories)
+  }, [data, cacheCategories?.getCategories])
+  
   const handleCreate = ({
     idCategory,
     idSubCategory,
@@ -66,21 +75,18 @@ const CategoryContainer = () => {
         variables: {
           name,
         },
-        onCompleted: () => {
+        onCompleted: (data) => {
           setCreateType("");
-          showSuccessSnackbar("Category added");
+          showSuccessSnackbar(`Category '${name}' has been added`);
         },
         onError: (error) => showErrorSnackbar(`Something went wrong! ${error}`),
-        update(cache, { data }) {
-          let { getCategories }: any = cache.readQuery({
-            query: GET_CATEGORIES,
-          });
-          const mutationArray = [...getCategories];
-          mutationArray.push(data.addCategory);
+        update(cache, { data: {addCategory}}) {
+          const existingData: any = cache.readQuery({ query: GET_CATEGORIES });
+          const newData = [...existingData?.getCategories,addCategory]
 
           cache.writeQuery({
             query: GET_CATEGORIES,
-            data: { getCategories: mutationArray },
+            data: { getCategories: newData},
           });
         },
       });
@@ -115,34 +121,34 @@ const CategoryContainer = () => {
           showSuccessSnackbar("Category added");
         },
         onError: (error) => showErrorSnackbar(`Something went wrong! ${error}`),
-        update(cache, { data }) {
-          let { getCategories }: any = cache.readQuery({
-            query: GET_CATEGORIES,
-          });
-
-          const mutationArray = _.cloneDeep(getCategories);
-
-          setCategories(
-            mutationArray.map((el: any) => {
-              if (el.id === idCategory) {
-                return data.addThingToSubCategory;
-              }
-              return el;
-            })
-          );
-        },
+        // update(cache, { data }) {
+        //   let { getCategories }: any = cache.readQuery({
+        //     query: GET_CATEGORIES,
+        //   });
+        //
+        //   const mutationArray = _.cloneDeep(getCategories);
+        //
+        //   setCategories(
+        //     mutationArray.map((el: any) => {
+        //       if (el.id === idCategory) {
+        //         return data.addThingToSubCategory;
+        //       }
+        //       return el;
+        //     })
+        //   );
+        // },
       });
       return;
     }
   };
 
-  const handleDeleteCategory = ({ idCategory }: ActionArgumentsType) => {
+  const handleDeleteCategory = ({ idCategory, name }: ActionArgumentsType) => {
     deleteCategory({
       variables: {
         idCategory,
       },
       onCompleted: () => {
-        showSuccessSnackbar("Category success deleted!");
+        showSuccessSnackbar(`Category '${name}' success deleted!`);
       },
       onError: (error) => showErrorSnackbar(`Something went wrong! ${error}`),
       update(cache, { data }) {
@@ -156,6 +162,7 @@ const CategoryContainer = () => {
   const handleDeleteSubCategory = ({
     idCategory,
     idSubCategory,
+    name,
   }: ActionArgumentsType) => {
     deleteSubCategory({
       variables: {
@@ -164,7 +171,7 @@ const CategoryContainer = () => {
       },
       onCompleted: () => {
         setActiveSubCategory({ id: "", name: "" });
-        showSuccessSnackbar("Category success deleted!");
+        showSuccessSnackbar(`Category '${name}' success deleted!`);
       },
       onError: (error) => showErrorSnackbar(`Something went wrong! ${error}`),
       update(cache, { data }) {
@@ -182,6 +189,7 @@ const CategoryContainer = () => {
     idCategory,
     idSubCategory,
     idClotheType,
+    name
   }: ActionArgumentsType) => {
     deleteThingFromSubCategory({
       variables: {
@@ -189,8 +197,9 @@ const CategoryContainer = () => {
         idSubCategory,
         idClotheType,
       },
+      
       onCompleted: () => {
-        showSuccessSnackbar("Thing success deleted from sub category!");
+        showSuccessSnackbar(`Thing '${name}' success deleted from sub category!`);
       },
       onError: (error) => showErrorSnackbar(`Something went wrong! ${error}`),
       update(cache, { data }) {
@@ -211,6 +220,8 @@ const CategoryContainer = () => {
       },
     });
   }, [getCategories]);
+  
+  
 
   useEffect(() => {
     if (!category.id) return;

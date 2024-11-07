@@ -38,6 +38,7 @@ const FilterProvider = ({ children }: { children: ReactNode }) => {
     } else {
     }
   }, [user]);
+  
   console.log("filter render");
 
   useEffect(() => {

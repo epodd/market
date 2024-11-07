@@ -22,6 +22,29 @@ export type CartResponseType = {
   userId: Scalars['String'];
 };
 
+export type Category = {
+  __typename?: 'Category';
+  createAt: Scalars['String'];
+  id: Scalars['String'];
+  name: Scalars['String'];
+  subCategory: Array<Maybe<SubCategoryType>>;
+};
+
+export type CategoryType = {
+  __typename?: 'CategoryType';
+  createAt: Scalars['String'];
+  id: Scalars['String'];
+  name: Scalars['String'];
+  subCategory: Array<SubCategoryType>;
+};
+
+export type ClothesType = {
+  __typename?: 'ClothesType';
+  createAt: Scalars['String'];
+  id: Scalars['String'];
+  name: Scalars['String'];
+};
+
 export type ColorInputType = {
   color: Scalars['String'];
   id: Scalars['String'];
@@ -41,9 +64,42 @@ export type File = {
   mimetype: Scalars['String'];
 };
 
+export type FilterCategoriesType = {
+  __typename?: 'FilterCategoriesType';
+  id: Scalars['String'];
+  name: Scalars['String'];
+  order: Scalars['String'];
+};
+
+export type FilterCategoriesTypeInput = {
+  color: Scalars['String'];
+  id: Scalars['String'];
+  name: Scalars['String'];
+};
+
+export type FilterColorsType = {
+  __typename?: 'FilterColorsType';
+  color: Scalars['String'];
+  id: Scalars['String'];
+  name: Scalars['String'];
+};
+
+export type FilterDataType = {
+  __typename?: 'FilterDataType';
+  categories: Array<FilterCategoriesType>;
+  colors: Array<FilterColorsType>;
+};
+
 export type FilterInputType = {
+  categories?: InputMaybe<Array<FilterCategoriesTypeInput>>;
   categoryId: Scalars['String'];
   colors?: InputMaybe<Array<InputMaybe<ColorInputType>>>;
+};
+
+export type FilterType = {
+  __typename?: 'FilterType';
+  filter?: Maybe<FilterDataType>;
+  userId: Scalars['String'];
 };
 
 export type ImageType = {
@@ -65,11 +121,23 @@ export type LogoutResponseType = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  addCategory: CategoryType;
   addProduct: ProductResponseType;
   addProductToCart?: Maybe<CartResponseType>;
+  addSubCategory: CategoryType;
+  addThingToSubCategory: CategoryType;
+  deleteCategory: CategoryType;
+  deleteSubCategory: CategoryType;
+  deleteThingFromSubCategory: CategoryType;
   login: UserResponseType;
   logout: LogoutResponseType;
+  putFilter: FilterType;
   registration: UserResponseType;
+};
+
+
+export type MutationAddCategoryArgs = {
+  name: Scalars['String'];
 };
 
 
@@ -84,6 +152,37 @@ export type MutationAddProductToCartArgs = {
 };
 
 
+export type MutationAddSubCategoryArgs = {
+  idCategory: Scalars['String'];
+  nameSubCategory: Scalars['String'];
+};
+
+
+export type MutationAddThingToSubCategoryArgs = {
+  idCategory: Scalars['String'];
+  idSubCategory: Scalars['String'];
+  nameThing: Scalars['String'];
+};
+
+
+export type MutationDeleteCategoryArgs = {
+  idCategory: Scalars['String'];
+};
+
+
+export type MutationDeleteSubCategoryArgs = {
+  idCategory: Scalars['String'];
+  idSubCategory: Scalars['String'];
+};
+
+
+export type MutationDeleteThingFromSubCategoryArgs = {
+  idCategory: Scalars['String'];
+  idSubCategory: Scalars['String'];
+  nameThing: Scalars['String'];
+};
+
+
 export type MutationLoginArgs = {
   email: Scalars['String'];
   password: Scalars['String'];
@@ -91,6 +190,12 @@ export type MutationLoginArgs = {
 
 
 export type MutationLogoutArgs = {
+  userId: Scalars['String'];
+};
+
+
+export type MutationPutFilterArgs = {
+  filter: FilterInputType;
   userId: Scalars['String'];
 };
 
@@ -135,6 +240,9 @@ export type ProductResponseType = {
 export type Query = {
   __typename?: 'Query';
   getCart?: Maybe<CartResponseType>;
+  getCategories?: Maybe<Array<Maybe<Category>>>;
+  getCategory: Category;
+  getFilter?: Maybe<FilterType>;
   getProductByFilter: Array<ProductResponseType>;
   getProductByIds: Array<ProductResponseType>;
   getProductByName: Array<ProductResponseType>;
@@ -145,6 +253,16 @@ export type Query = {
 
 
 export type QueryGetCartArgs = {
+  userId: Scalars['String'];
+};
+
+
+export type QueryGetCategoryArgs = {
+  idCategory: Scalars['String'];
+};
+
+
+export type QueryGetFilterArgs = {
   userId: Scalars['String'];
 };
 
@@ -182,6 +300,14 @@ export type RefreshTokenResponseType = {
 export type SizeType = {
   id: Scalars['String'];
   name: Scalars['String'];
+};
+
+export type SubCategoryType = {
+  __typename?: 'SubCategoryType';
+  createAt: Scalars['String'];
+  id: Scalars['String'];
+  name: Scalars['String'];
+  typeClothes?: Maybe<Array<ClothesType>>;
 };
 
 export type UserAuthorizeType = {
@@ -485,7 +611,7 @@ export type AddProductMutationHookResult = ReturnType<typeof useAddProductMutati
 export type AddProductMutationResult = Apollo.MutationResult<AddProductMutation>;
 export type AddProductMutationOptions = Apollo.BaseMutationOptions<AddProductMutation, AddProductMutationVariables>;
 export const GetProductsDocument = gql`
-    query GetProducts($filter: FilterInputType) {
+    query GetProducts($filter: ProductsFilterInputType) {
   getProducts(filter: $filter) {
     name
     id

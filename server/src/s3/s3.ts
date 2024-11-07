@@ -8,7 +8,7 @@ export const config = {
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
   apiVersion: "2010-12-01",
-  region: "eu-west-2",
+  region: "eu-central-1",
 }
 
 AWS.config.update(config);

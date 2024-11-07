@@ -5,10 +5,9 @@ import CreateProductForm from "../../forms/create-product-form";
 const Wrapper = styled.div`
   width: 100%;
   box-sizing: border-box;
-  padding-top: 100px;
   overflow-y: scroll;
+  padding: 100px 100px;
   display: flex;
-  justify-content: center;
 `;
 
 export const ProductContainer = () => {

@@ -1,12 +1,20 @@
 import React, { memo, ReactNode, useCallback, useState } from "react";
-import { Wrapper, HeaderWrapper, Main } from "./styled";
-import Header from "src/components/header/header";
-import { AnimationBox } from "src/components/animation/animationBox/animationBox";
+import {
+  Wrapper,
+  HeaderWrapper,
+  Main,
+  SpinnerWrapper,
+  SpinnerOverlay,
+} from "./styled";
+import { Header, AnimationBox } from "@components";
 import { CartModal } from "src/modals/cart-modal/cart-modal";
 import { ACCOUNT_PATH, CHECKOUT_PATH } from "src/routes/routes-config";
 import { useRouter } from "../../../hooks/useRouter";
-import { theme } from "../../../UI-kit";
-import { useFilter } from "../../../contexts";
+import { theme } from "@ui";
+import { useFilter } from "@contexts";
+import { useReactiveVar } from "@apollo/client";
+import { Spinner } from "@components";
+import { loadingVar } from "@store";
 
 const getBackgroundColor = (path: string) => {
   if (path.indexOf(CHECKOUT_PATH) > -1) {
@@ -24,9 +32,10 @@ const MemoMain = memo(({ children }: any) => {
   return <Main>{children}</Main>;
 });
 
-const MainLayout = ({ children }: { children: ReactNode }) => {
+export const MainLayout = ({ children }: { children: ReactNode }) => {
   const [cartModalOpen, setCartModalOpen] = useState<boolean>(false);
   const { setFilter } = useFilter();
+  const isLoading = useReactiveVar(loadingVar);
 
   const { pathname } = useRouter();
   return (
@@ -38,8 +47,8 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
       <AnimationBox variantAnimation="pageAnimation">
         <MemoMain>{children}</MemoMain>
       </AnimationBox>
+      <SpinnerWrapper>{isLoading && <Spinner />}</SpinnerWrapper>
+      {isLoading && <SpinnerOverlay />}
     </Wrapper>
   );
 };
-
-export default MainLayout;

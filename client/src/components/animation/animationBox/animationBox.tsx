@@ -22,9 +22,11 @@ export const AnimationBox = memo(
     variantAnimation,
     initial,
     controlOn,
+     click,
   }: {
     initial?: string;
     controlOn?: boolean;
+    click?: boolean;
     children: ReactNode;
     variantAnimation: VariantsAnimationTypes;
   }) => {

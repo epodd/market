@@ -78,11 +78,13 @@ const CreateProductDto = (data: CreateProductDataType) => ({
   gender: data.gender,
   variantsColor: data?.variantsColor?.length ? data.variantsColor : [],
   typeProduct: data.typeProduct
-    .map((el) =>
+    ?.map((el) =>
       Object.values(_.pick(el, ["id", "categoryId", "subCategoryId"]))
     )
     .flat(),
 });
+
+
 
 const CreateProductForm = () => {
   const { allTypeClothesWithParentIds } = useCategoriesHook();
@@ -96,6 +98,7 @@ const CreateProductForm = () => {
       // @ts-ignore
       imageFiles: formData.imageFiles,
     };
+    
 
     addProduct({
       variables: {
@@ -122,6 +125,9 @@ const CreateProductForm = () => {
     });
   };
 
+  
+  
+  
   return (
     <Box h="fit-content">
       <Form

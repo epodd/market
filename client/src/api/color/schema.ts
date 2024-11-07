@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const ADD_COLOR = gql`
-  mutation AddColor($data: NewColorType!) {
+  mutation AddColor($data: NewColorInputType!) {
     addColor(data: $data) {
       name
       color

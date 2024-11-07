@@ -1,7 +1,8 @@
-import Category from "../../models/category/category";
+import Category from '../../models/category/category'
 
 class categoryService {
   async addCategory(parent, { name }) {
+    
     const newCategory = await Category.create({ name });
 
     await newCategory.save();
@@ -9,8 +10,8 @@ class categoryService {
     return newCategory;
   }
 
-  addSubCategory(parent, { idCategory, nameSubCategory }) {
-    return Category.findOneAndUpdate(
+  async addSubCategory(parent, { idCategory, nameSubCategory }) {
+    return await Category.findOneAndUpdate(
       {
         _id: idCategory,
       },
@@ -23,11 +24,11 @@ class categoryService {
         new: true,
         returnDocument: "after",
       }
-    );
+    )
   }
 
-  addThingToSubCategory(parent, { idCategory, idSubCategory, nameThing }) {
-    return Category.findOneAndUpdate(
+  async addThingToSubCategory(parent, { idCategory, idSubCategory, nameThing }) {
+    return await Category.findOneAndUpdate(
       {
         _id: idCategory,
         "subCategory._id": idSubCategory,
@@ -44,16 +45,17 @@ class categoryService {
     );
   }
 
-  getCategories() {
-    return Category.find();
+  async getCategories() {
+    return await Category.find({});
+    
   }
 
-  getCategory(parent, { idCategory }) {
-    return Category.findById(idCategory);
+  async getCategory(parent, { idCategory }) {
+    return await Category.findById(idCategory);
   }
 
-  deleteSubCategory(parent, { idCategory, idSubCategory }) {
-    return Category.findOneAndUpdate(
+  async deleteSubCategory(parent, { idCategory, idSubCategory }) {
+    return await Category.findOneAndUpdate(
       {
         _id: idCategory,
       },
@@ -69,11 +71,11 @@ class categoryService {
     );
   }
 
-  deleteThingFromSubCategory(
+  async deleteThingFromSubCategory(
     parent,
     { idCategory, idSubCategory, idClotheType }
   ) {
-    return Category.findOneAndUpdate(
+    return await Category.findOneAndUpdate(
       {
         _id: idCategory,
         "subCategory._id": idSubCategory,
@@ -90,9 +92,9 @@ class categoryService {
     );
   }
 
-  deleteCategory(parent, { idCategory }) {
+  async deleteCategory(parent, { idCategory }) {
     console.log(idCategory);
-    return Category.findOneAndDelete({
+    return await Category.findOneAndDelete({
       _id: idCategory,
     });
   }

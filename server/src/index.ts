@@ -41,9 +41,10 @@ async function startServer() {
 startServer();
 
 async function startDB() {
-  await mongoose.connect(process.env.MONGO_DB_KEY, () => {
-    console.log("Connect to database is success!");
-  });
+  
+  await mongoose.connect(process.env.MONGO_DB_KEY).then(res => {
+      console.log("Connect to database is success!");
+  }).catch(e => console.log("Connect to database is failed!"))
 }
 
 startDB();

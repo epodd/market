@@ -9,12 +9,14 @@ class colorService {
     return newColor;
   }
 
-  deleteColor(parent, { colorId }) {
-    return Color.findByIdAndDelete(colorId);
+  async deleteColor(parent, { colorId }) {
+    const res = await Color.findByIdAndDelete(colorId);
+    return res
   }
 
-  getColors(parent) {
-    return Color.find();
+  async getColors() {
+    const data = await Color.find({});
+    return data
   }
 }
 
